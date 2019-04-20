@@ -10,11 +10,13 @@
                    FontAttributes="Bold" 
                    HorizontalOptions="Center" />
             
-            <Picker Title="Select a monkey" 
+            <Picker 
+                x:Name="pickerMonkey"
+                Title="Select a monkey" 
                     TitleColor="Red"
                     ItemsSource="{Binding Monkeys}" 
                     ItemDisplayBinding="{Binding Name}"
-                    SelectedItem="{Binding SelectedMonkey}" />
+                    SelectedItem="{Binding SelectedMonkey, Mode=TwoWay}" />
             
             <Label Text="{Binding SelectedMonkey.Name}" 
                    HorizontalOptions="Center" 
@@ -26,7 +28,12 @@
                    HorizontalOptions="CenterAndExpand" />
             <Label Text="{Binding SelectedMonkey.Details}" 
                    Style="{DynamicResource BodyStyle}" />
-            
+
+
+            <Button 
+                x:Name="btnConfirm"
+                Clicked="BtnConfirm_Clicked"
+                />
             
         </StackLayout>
     </ScrollView>
